@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ObjetosEmprestados.Views.EditObjectPage1"
+             Title="DETALHES DO OBJETO">
+    
+        <StackLayout Orientation="Vertical">
+            <Label Text="Descricao do objeto emprestado" />
+            <Entry x:Name="DescricaoEntry" />
+            
+            <Label Text="Nome da pessoa" />
+            <Entry x:Name="NomeEntry" />
+            
+            <Label Text="Data do emprestimo" />
+            <Entry x:Name="DataEntry" />
+        </StackLayout>
+    
+</ContentPage>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ObjetosEmprestados"
+             x:Class="ObjetosEmprestados.MainPage"
+             Title="OBJETOS EMPRESTADOS">
+
+    <!--botao no toolbar-->
+    <ContentPage.ToolbarItems> 
+        <ToolbarItem Text="+" Clicked="OnAdicionarObjetoEmprestado" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Orientation="Vertical">
+
+        <SearchBar x:Name="ObjetoSearchBar" Placeholder="Procurar por..." TextChanged="OnObjetoProcurado"/> 
+        <!--TextChanged = como se fosse o novo evento "Clicked" do botao-->
+        <!--searchBar nao tem item inserido, por isso que nao tem <SearchBar><SearchBar/>  -->
+
+        <ListView x:Name="ObjetoListView"
+                  CachingStrategy="RecycleElement"
+                  SeparatorVisibility="Default"
+                  IsPullToRefreshEnabled="True"
+                  HasUnevenRows="True"
+                  Margin="0,10,0,0"
+                  ItemSelected="OnObjetoSelecionado">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Padding="10" VerticalOptions="Fill">
+                            <Label Text="{Binding Descricao}" FontAttributes="Bold" />
+                            <Label Text="{Binding Nome,StringFormat='Emprestado para {0}'}" />
+                            <Label Text="{Binding Data,StringFormat='Emprestado em {0:d MMMM yyyy}'}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+       
+    </StackLayout>
+    
+    
+
+</ContentPage>
